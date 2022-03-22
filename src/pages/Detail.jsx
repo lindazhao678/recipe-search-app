@@ -19,6 +19,7 @@ function Detail(props) {
     getDetail();
   }, []);
 
+
   return (
     <div className="detail-page">
       <div className="content-container">
@@ -42,7 +43,7 @@ function Detail(props) {
           </div>
         </div>
 
-        <div className=" row ingredients-section mt-5 pb-5 justify-content-center">
+        <div className="row ingredients-section mt-5 pb-5 justify-content-center">
           <div className="col-8">
             <h2>Ingredients:</h2>
             <ul>
@@ -53,6 +54,7 @@ function Detail(props) {
             </ul>
           </div>
         </div>
+
       </div>
     </div>
   );

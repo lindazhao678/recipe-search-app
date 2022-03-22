@@ -12,7 +12,8 @@ function Card(props) {
     let favorites = getFavorites();
     if (contains(favorites)) {
       setLike(true);
-    } 
+    } else
+    setLike(false);
   }, []);
 
   function handleClick() {
