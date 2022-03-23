@@ -1,35 +1,99 @@
 import React from "react";
-import { Form, Button } from "react-bootstrap";
+
+//Modules
+import Joi from "joi";
+import { joiResolver } from "@hookform/resolvers/joi";
+import { useForm, Controller } from "react-hook-form";
+
+//Bootstrap
+import Button from "react-bootstrap/Button";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Form from "react-bootstrap/Form";
 
 function Contact() {
+  //Joi Validation Schema
+  const schema = Joi.object({
+    name: Joi.string().required(),
+    email: Joi.string().email({
+      minDomainSegments: 2,
+      tlds: { allow: ["com", "net"] },
+    }),
+    feedback: Joi.string().required(),
+  });
+  //React Hook Form
+  const result = useForm({
+    resolver: joiResolver(schema),
+    defaultValues: {},
+  });
+  const errors = result.formState.errors;
+  const control = result.control;
+  const handleSubmit = result.handleSubmit;
+  //Submit
+  const onSubmit = (data) => {
+    console.log(data);
+    window.alert("Thanks for your feedback!");
+  };
+
   return (
-    <div className="contact-page ">
-      <div className="content-container-sm">
-        <Form className="form p-5">
-          <Form.Group className="mb-3 " controlId="name">
-            <Form.Label className="text-center">NAME</Form.Label>
-            <Form.Control type="text" placeholder="Enter name" />
+    <div className="contact-section">
+
+        {/* Page Header */}
+        <Row className="pt-3 justify-content-center">
+          <h2 className="col-4 text-center">Contact Us</h2>
+        </Row>
+        <Row className="justify-content-center">
+        {/* Name */}
+        <Form onSubmit={handleSubmit(onSubmit)} className="form col-6" noValidate>
+          <Form.Group>
+            <Form.Label className="fs-5">NAME</Form.Label>
+            <Controller
+              name="name"
+              control={control}
+              render={({ field }) => (
+                <Form.Control {...field} placeholder="name" />
+              )}
+            />
+            <p className="text-danger">{errors.name?.message}</p>
           </Form.Group>
 
-          <Form.Group className="mb-3" controlId="email">
-            <Form.Label>Email</Form.Label>
-            <Form.Control type="email" placeholder="Enter email" />
+          {/* Email */}
+          <Form.Group>
+            <Form.Label className="fs-5">EMAIL</Form.Label>
+            <Controller
+              name="email"
+              control={control}
+              render={({ field }) => (
+                <Form.Control {...field} placeholder="email" type="email" />
+              )}
+            />
+            <p className="text-danger">{errors.email?.message}</p>
           </Form.Group>
 
-          <Form.Group className="mb-3 " controlId="feedback">
-            <Form.Label>FEEDBACK</Form.Label>
-            <Form.Control as="textarea" placeholder="Enter feedback" rows={3} />
+          {/* Feedback */}
+          <Form.Group>
+            <Form.Label className="fs-5">FEEDBACK</Form.Label>
+            <Controller
+              name="feedback"
+              control={control}
+              render={({ field }) => (
+                <Form.Control
+                  {...field}
+                  placeholder="feedback"
+                  as="textarea"
+                  rows={5}
+                />
+              )}
+            />
+            <p className="text-danger">{errors.feedback?.message}</p>
           </Form.Group>
 
-          <Button
-            className="mt-4  w-100 btn-block"
-            variant="danger"
-            type="submit"
-          >
-            SEND
+          {/* Submit */}
+          <Button type="submit" variant="danger" className="mt-1 mb-3 w-100">
+            Send
           </Button>
         </Form>
-      </div>
+      </Row>
     </div>
   );
 }

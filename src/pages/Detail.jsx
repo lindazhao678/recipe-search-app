@@ -19,6 +19,9 @@ function Detail(props) {
     getDetail();
   }, []);
 
+  function handleClick() {
+    window.location = detail && detail.data.recipe.url;
+  }
 
   return (
     <div className="detail-page">
@@ -55,6 +58,18 @@ function Detail(props) {
           </div>
         </div>
 
+        
+        <div className="row">
+          <button
+            className=" btn btn-danger col-2 ms-auto"
+            onClick={handleClick}
+          >
+            Recipe {">>"}
+          </button>
+          <div className="col-2"></div>
+        </div>
+
+        
       </div>
     </div>
   );

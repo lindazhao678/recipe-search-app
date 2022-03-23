@@ -2,6 +2,7 @@ import React, { Fragment, useEffect, useState } from "react";
 import { getResults, fetch } from "../services/recipeServices";
 import Card from "../components/Card";
 import { useLocation } from "react-router-dom";
+import Spinner from 'react-bootstrap/Spinner'
 
 function Recipes() {
   const perPage = 20;
