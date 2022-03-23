@@ -8,7 +8,7 @@ function Footer() {
 
   return (
     <footer>
-    Recipe Search App &copy; {getCurrentYear()}
+    Recipe Search App &copy; {getCurrentYear()} Lijun Zhao
   </footer>
   )
 }

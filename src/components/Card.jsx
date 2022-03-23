@@ -14,9 +14,9 @@ function Card(props) {
       setLike(true);
     } else
     setLike(false);
-  }, []);
+  }, [selfLink]);
 
-  function handleClick() {
+  function handleLike() {
     let favorites = getFavorites();
     if (contains(favorites)) {
       favorites = remove(favorites);
@@ -55,11 +55,11 @@ function Card(props) {
   
   return (
     <div className="card">
-      <img className="card-img-top imageCrop" src={image} alt={label} />
+      <img className="card-img-top" src={image} alt={label} />
       <div className="card-body">
         <p className="card-title text-center">{label}</p>
         <div className="more-section">
-          <button className="like-icon" onClick={handleClick}>
+          <button className="like-icon" onClick={handleLike}>
             <FontAwesomeIcon icon={faHeart} color={like ? "red" : "white"} />
           </button>
           <button onClick={handleMore} type="button" className="more-button btn btn-danger btn-sm">

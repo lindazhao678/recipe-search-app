@@ -2,12 +2,12 @@ import React, { Fragment, useEffect, useState } from "react";
 import { getResults, fetch } from "../services/recipeServices";
 import Card from "../components/Card";
 import { useLocation } from "react-router-dom";
-import Spinner from 'react-bootstrap/Spinner'
+import Spinner from "react-bootstrap/Spinner";
 
 function Recipes() {
   const perPage = 20;
   const { state: passedQuery } = useLocation();
-
+  const [loading, setLoading] = useState(false);
   const [query, setQuery] = useState("");
   const [resultBucket, setResultBucket] = useState([]);
   const [nextLink, setNextLink] = useState("");
@@ -16,6 +16,8 @@ function Recipes() {
 
   useEffect(() => {
     function getSearch() {
+      setLoading(true);
+
       try {
         passedQuery && setQuery(passedQuery);
         if (query) {
@@ -33,7 +35,9 @@ function Recipes() {
                 }
               }
             })
-            .catch((err) => {});
+            .catch((err) => {
+              console.log(err);
+            });
         } else {
           setResultBucket([]);
         }
@@ -42,6 +46,7 @@ function Recipes() {
       }
     }
     getSearch();
+    setLoading(false);
   }, [query]);
 
   const handleKeyDown = (e) => {
@@ -56,9 +61,12 @@ function Recipes() {
       const currentPage = pageCount + 1;
       setPageCount(currentPage);
       let pageOffset = getPageOffSet(currentPage);
-      if (resultBucket.length > pageOffset ) {
+      if (resultBucket.length > pageOffset) {
         const remainingCount = resultBucket.length - pageOffset;
-        const pageEnd = remainingCount > perPage ? pageOffset + perPage : pageOffset + remainingCount;
+        const pageEnd =
+          remainingCount > perPage
+            ? pageOffset + perPage
+            : pageOffset + remainingCount;
         const slice = resultBucket.slice(pageOffset, pageEnd);
         setPageResult(slice);
       } else {
@@ -105,7 +113,15 @@ function Recipes() {
           onKeyDown={handleKeyDown}
         />
       </form>
-      {pageResult.length>1 && (
+      {loading && (
+        <div className="container text-center mt-4">
+          <Spinner animation="border" role="status">
+            <span className="visually-hidden">Loading...</span>
+          </Spinner>
+        </div>
+      )}
+
+      {pageResult.length > 1 && (
         <Fragment>
           <div className="container mt-4">
             <div className="row">
@@ -124,21 +140,21 @@ function Recipes() {
           </div>
 
           <div className="mt-5 pb-5 container">
-            <div className="row ">
+            <div className="row">
               <button
-                className="btn btn-danger col-4"
+                className="btn btn-danger col-3"
                 onClick={handlePrev}
                 disabled={pageCount < 2}
               >
-                Prev Page
+                {"<<"} Prev Page
               </button>
-              <div className=" text-center col-4 ">{pageCount}</div>
+              <div className=" text-center col-6">{pageCount}</div>
               <button
-                className="btn btn-danger col-4"
+                className="btn btn-danger col-3"
                 onClick={handleNext}
                 disabled={nextLink === ""}
               >
-                Next Page
+                Next Page {">>"}
               </button>
             </div>
           </div>

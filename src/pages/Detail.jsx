@@ -46,7 +46,7 @@ function Detail(props) {
           </div>
         </div>
 
-        <div className="row ingredients-section mt-5 pb-5 justify-content-center">
+        <div className="row ingredients-section mt-5 justify-content-center">
           <div className="col-8">
             <h2>Ingredients:</h2>
             <ul>
@@ -57,11 +57,10 @@ function Detail(props) {
             </ul>
           </div>
         </div>
-
         
         <div className="row">
           <button
-            className=" btn btn-danger col-2 ms-auto"
+            className="btn btn-danger col-2 ms-auto mb-4"
             onClick={handleClick}
           >
             Recipe {">>"}
