@@ -14,38 +14,33 @@ function Home(props) {
   };
 
   return (
-    <div className="main">
-      <div id="hero-section">
+    <div className="home-page">
+      <div className="hero-section container">
         <div className="hero-content">
-          <div className="content-left">
-            <p>Don't know how to perpare your meal?</p>
+          <div className="hero-content-left">
+            <h2>Don't know how to perpare your meal?</h2>
           </div>
-          <div className="content-right">
-            <ul>
-              <li>Search the recipes!</li>
-              <li>Add to favorits!</li>
-              <li>And do it!</li>
-            </ul>
+          <div className="hero-content-right">
+            <h4>Search the recipes!</h4>
+            <h4>Add to favorits!</h4>
+            <h4>And do it!</h4>
           </div>
         </div>
-        <p className="slogan">Never too late to treat yourself some yummies!</p>
+        <h3 className="hero-slogan">Never too late to treat yourself some yummies!</h3>
         <div className="down-arrow bounce">
           <FaArrowDown />
         </div>
       </div>
-      <div className="search-section">
-    
-          <h1>YOUR MEAL, YOUR CALL</h1>
-          <form className="home-search-input">
-            <input
-              type="text"
-              className="form-control"
-              id="search-input"
-              placeholder="Search..."
-              Value={query}
-              onKeyDown={handleKeyDown}
-            />
-          </form>
+      <div className="search-section container py-5">
+        <h1>YOUR MEAL, YOUR CALL</h1>
+          <input
+            type="text"
+            className="form-control"
+            id="search-input"
+            placeholder="Search..."
+            Value={query}
+            onKeyDown={handleKeyDown}
+          />
       </div>
     </div>
   );

@@ -58,7 +58,7 @@ function Card(props) {
       <img className="card-img-top" src={image} alt={label} />
       <div className="card-body">
         <p className="card-title text-center">{label}</p>
-        <div className="more-section">
+        <div className="like-more-btn-section">
           <button className="like-icon" onClick={handleLike}>
             <FontAwesomeIcon icon={faHeart} color={like ? "red" : "white"} />
           </button>

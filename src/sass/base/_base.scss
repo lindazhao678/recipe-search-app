@@ -1,0 +1,16 @@
+@use "../abstracts" as *;
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  font-family: $font-stack;
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+}

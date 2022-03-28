@@ -1,0 +1,44 @@
+@use "../abstracts" as *;
+
+.navbar {
+  background-color: #fba8a8;
+
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .logo img {
+      height: 70px;
+      display: block;
+    }
+
+    ul {
+      display: flex;
+      list-style: none;
+      margin: 0;
+
+      li {
+        padding: 15px;
+        margin-right: 60px;
+
+        a.active {
+          color: #EF3333;
+        }
+
+        a {
+          color: black;
+
+          &:hover {
+            color: #EF3333;
+          }
+        }
+
+        &:last-child {
+          padding-right: 0;
+          margin-right: 0;
+        }
+      }
+    }
+  }
+}

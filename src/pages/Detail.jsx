@@ -25,20 +25,19 @@ function Detail(props) {
 
   return (
     <div className="detail-page">
-      <div className="content-container">
+      <div className="container">
         <h1 className="p-5 text-center">
           {detail && detail.data.recipe.label}
         </h1>
         <div className="info-section row align-items-center justify-content-center">
-          <div className="col-4">
-            <img
-              className="info-image img-thumbnail "
+          <div className="info-image col-4">
+            <img className="img-thumbnail image-fluid"
               src={detail && detail.data.recipe.image}
               alt={detail && detail.data.recipe.label}
             />
           </div>
-          <div className="info-Content col-4">
-            <ul className="list-unstyled">
+          <div className="info-content col-4">
+            <ul>
               <li>Cuisine Type: {detail && detail.data.recipe.cuisineType}</li>
               <li>Meal Type: {detail && detail.data.recipe.mealType}</li>
               <li>Dish Type: {detail && detail.data.recipe.dishType}</li>
@@ -60,15 +59,13 @@ function Detail(props) {
         
         <div className="row">
           <button
-            className="btn btn-danger col-2 ms-auto mb-4"
+            className="btn btn-danger col-2 ms-auto mb-5"
             onClick={handleClick}
           >
             Recipe {">>"}
           </button>
           <div className="col-2"></div>
-        </div>
-
-        
+        </div>        
       </div>
     </div>
   );

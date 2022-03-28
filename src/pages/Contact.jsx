@@ -38,7 +38,7 @@ function Contact() {
     <div className="contact-page">
 
         {/* Page Header */}
-        <Row className="py-5 justify-content-center">
+        <Row className="pt-5 justify-content-center">
           <h2 className="col-4 text-center">Contact Us</h2>
         </Row>
         <Row className="justify-content-center">

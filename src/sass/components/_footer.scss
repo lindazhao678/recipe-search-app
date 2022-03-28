@@ -1,0 +1,9 @@
+@use "../abstracts" as *;
+
+footer {
+    display: flex;
+    background-color: #fba8a8;
+    align-items: center;
+    padding: 1em;
+    justify-content: center;
+  }

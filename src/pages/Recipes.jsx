@@ -103,7 +103,7 @@ function Recipes() {
 
   return (
     <div className="search-page">
-      <form className="recipes-search-input">
+      <div className="container"><form className="recipes-search-input">
         <input
           type="text"
           className="form-control"
@@ -113,8 +113,9 @@ function Recipes() {
           onKeyDown={handleKeyDown}
         />
       </form>
+      
       {loading && (
-        <div className="container text-center mt-4">
+        <div className="text-center pt-5">
           <Spinner animation="border" role="status">
             <span className="visually-hidden">Loading...</span>
           </Spinner>
@@ -123,11 +124,11 @@ function Recipes() {
 
       {pageResult.length > 1 && (
         <Fragment>
-          <div className="container mt-4">
+          <div className="pt-5">
             <div className="row">
               {pageResult.map((item) => {
                 return (
-                  <div className="col-sm-3">
+                  <div className="col-md-3 py-2">
                     <Card
                       selfLink={item._links.self.href}
                       label={item.recipe.label}
@@ -139,7 +140,7 @@ function Recipes() {
             </div>
           </div>
 
-          <div className="mt-5 pb-5 container">
+          <div className="py-5">
             <div className="row">
               <button
                 className="btn btn-danger col-3"
@@ -148,7 +149,7 @@ function Recipes() {
               >
                 {"<<"} Prev Page
               </button>
-              <div className=" text-center col-6">{pageCount}</div>
+              <div className="text-center col-6 fs-5">PAGE {pageCount}</div>
               <button
                 className="btn btn-danger col-3"
                 onClick={handleNext}
@@ -160,7 +161,8 @@ function Recipes() {
           </div>
         </Fragment>
       )}
-    </div>
+    </div></div>
+      
   );
 }
 

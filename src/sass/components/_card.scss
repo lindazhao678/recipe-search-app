@@ -1,0 +1,19 @@
+@use "../abstracts" as *;
+
+.card {
+    background-color: #fba8a8;
+
+    .like-more-btn-section {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .like-icon {
+            background: transparent;
+            border: none;
+          }
+      }
+  }
+  
+  
+  

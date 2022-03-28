@@ -7,7 +7,7 @@ function Header() {
 
   return (
     <div className="navbar">
-      <nav>
+      <div className="nav container">
         <div className="logo">
           <a href="/"><img src="assets/logo.png" alt="logo"/></a>
         </div>
@@ -17,7 +17,7 @@ function Header() {
           <li><a className={location==='/favorites'&&'active'} href="/favorites">Favorites</a></li>
           <li><a className={location==='/contact'&&'active'} href="/contact">Contact</a></li>
         </ul>
-      </nav>
+      </div>
     </div>
   );
 }
