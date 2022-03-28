@@ -103,7 +103,7 @@ function Recipes() {
 
   return (
     <div className="search-page">
-      <form className="search-form">
+      <form className="recipes-search-input">
         <input
           type="text"
           className="form-control"

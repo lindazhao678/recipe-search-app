@@ -9,7 +9,7 @@ function Header() {
     <div className="navbar">
       <nav>
         <div className="logo">
-          <img src="assets/logo.png" alt="logo"/>
+          <a href="/"><img src="assets/logo.png" alt="logo"/></a>
         </div>
         <ul>
           <li><a className={location==='/'&&'active'} href="/">Home</a></li>         

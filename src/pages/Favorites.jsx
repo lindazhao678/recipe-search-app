@@ -21,7 +21,7 @@ function Favorites(props) {
   }, []);
 
   return (
-    <div className="favorites-page container p-4">
+    <div className="favorites-page p-4">
       <div className="row">
         {favorites &&
           favorites.map((favorite) => {

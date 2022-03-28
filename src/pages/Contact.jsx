@@ -7,7 +7,6 @@ import { useForm, Controller } from "react-hook-form";
 
 //Bootstrap
 import Button from "react-bootstrap/Button";
-import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Form from "react-bootstrap/Form";
 
@@ -36,10 +35,10 @@ function Contact() {
   };
 
   return (
-    <div className="contact-section">
+    <div className="contact-page">
 
         {/* Page Header */}
-        <Row className="pt-3 justify-content-center">
+        <Row className="py-5 justify-content-center">
           <h2 className="col-4 text-center">Contact Us</h2>
         </Row>
         <Row className="justify-content-center">
