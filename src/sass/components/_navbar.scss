@@ -3,41 +3,20 @@
 .navbar {
   background-color: #fba8a8;
 
-  .nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  .logo img {
+    height: 70px;
+    display: block;
+  }
 
-    .logo img {
-      height: 70px;
-      display: block;
+  .navbar-nav {
+    margin-left: auto;
+    .nav-link.active {
+      color: $button-color;
     }
-
-    ul {
-      display: flex;
-      list-style: none;
-      margin: 0;
-
-      li {
-        padding: 15px;
-        margin-right: 60px;
-
-        a.active {
-          color: #EF3333;
-        }
-
-        a {
-          color: black;
-
-          &:hover {
-            color: #EF3333;
-          }
-        }
-
-        &:last-child {
-          padding-right: 0;
-          margin-right: 0;
-        }
+    .nav-link {
+      color: black;
+      &:hover {
+        color: $button-color;
       }
     }
   }

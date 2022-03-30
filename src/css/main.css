@@ -17,36 +17,21 @@ a {
 .navbar {
   background-color: #fba8a8;
 }
-.navbar .nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.navbar .nav .logo img {
+.navbar .logo img {
   height: 70px;
   display: block;
 }
-.navbar .nav ul {
-  display: flex;
-  list-style: none;
-  margin: 0;
+.navbar .navbar-nav {
+  margin-left: auto;
 }
-.navbar .nav ul li {
-  padding: 15px;
-  margin-right: 60px;
-}
-.navbar .nav ul li a.active {
+.navbar .navbar-nav .nav-link.active {
   color: #EF3333;
 }
-.navbar .nav ul li a {
+.navbar .navbar-nav .nav-link {
   color: black;
 }
-.navbar .nav ul li a:hover {
+.navbar .navbar-nav .nav-link:hover {
   color: #EF3333;
-}
-.navbar .nav ul li:last-child {
-  padding-right: 0;
-  margin-right: 0;
 }
 
 footer {
@@ -71,7 +56,7 @@ footer {
 }
 
 .home-page {
-  background: url("/public/assets/hero-image.jpg");
+  background: url("../assets/hero-image.jpg");
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -132,7 +117,7 @@ footer {
 }
 
 .search-page {
-  background: url("/public/assets/hero-image.jpg");
+  background: url("../assets/hero-image.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   min-height: 90vh;

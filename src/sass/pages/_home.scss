@@ -1,7 +1,7 @@
 @use "../abstracts" as *;
 
 .home-page {
-  background: url("/public/assets/hero-image.jpg");
+  background: url("../assets/hero-image.jpg");
   background-repeat: no-repeat;
   background-size: cover;
 
