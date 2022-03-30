@@ -3,10 +3,16 @@ import { getResults, fetch } from "../services/recipeServices";
 import Card from "../components/Card";
 import { useLocation } from "react-router-dom";
 import Spinner from "react-bootstrap/Spinner";
-
+/**
+ * A page to allow user to search recipes.
+ * User can add the recipe to his favorites.
+ * From this page, user can go to recipe details page.
+ * Pagination is also supported.
+ */
 function Recipes() {
   const perPage = 20;
   const { state: passedQuery } = useLocation();
+  //show loading icon when page is too slow to display
   const [loading, setLoading] = useState(false);
   const [query, setQuery] = useState("");
   const [resultBucket, setResultBucket] = useState([]);
@@ -15,42 +21,42 @@ function Recipes() {
   const [pageCount, setPageCount] = useState(0);
 
   useEffect(() => {
-    function getSearch() {
-      try {
-        passedQuery && setQuery(passedQuery);
-        if (query) {
-          getResults(query)
-            .then((res) => {
-              if (res.data.hits.length > 0) {
-                setResultBucket(res.data.hits);
-                setPageCount(1);
-                setPageResult(res.data.hits);
-
-                if (res.data?._links?.next?.href) {
-                  setNextLink(res.data._links.next.href);
-                } else {
-                  setNextLink("");
-                }
-              }
-            })
-            .catch((err) => {
-              console.log(err);
-            });
-        } else {
-          setResultBucket([]);
-        }
-      } catch (error) {
-        console.log(error);
-      }
-    }
-    //getSearch();
     query && setLoading(true);
-    setTimeout(() => {
-      getSearch();
-      setLoading(false);
-    }, 1000);
+    search();
+    setLoading(false);
   }, [query]);
 
+  // search recipes
+  function search() {
+    try {
+      passedQuery && setQuery(passedQuery);
+      if (query) {
+        getResults(query)
+          .then((res) => {
+            if (res.data.hits.length > 0) {
+              setResultBucket(res.data.hits);
+              setPageCount(1);
+              setPageResult(res.data.hits);
+
+              if (res.data?._links?.next?.href) {
+                setNextLink(res.data._links.next.href);
+              } else {
+                setNextLink("");
+              }
+            }
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      } else {
+        setResultBucket([]);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  // trigger search when user press enter key
   const handleKeyDown = (e) => {
     if (e.key === "Enter" && e.target.value !== "") {
       e.preventDefault();
@@ -58,6 +64,7 @@ function Recipes() {
     }
   };
 
+  // trigger next page
   const handleNext = (e) => {
     if (nextLink !== "") {
       const currentPage = pageCount + 1;
@@ -77,6 +84,7 @@ function Recipes() {
     }
   };
 
+  // trigger previous page
   const handlePrev = (e) => {
     if (pageCount > 1) {
       const currentPage = pageCount - 1;
@@ -87,10 +95,12 @@ function Recipes() {
     }
   };
 
+  // get page offset
   function getPageOffSet(currentPage) {
     return (currentPage - 1) * perPage;
   }
 
+  // fetch result based on link and current page
   async function fetchResult(link, currentPage) {
     const response = await fetch(link);
     let mergedArrays = resultBucket.concat(response.data.hits);
