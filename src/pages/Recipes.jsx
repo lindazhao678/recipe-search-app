@@ -16,8 +16,6 @@ function Recipes() {
 
   useEffect(() => {
     function getSearch() {
-      setLoading(true);
-
       try {
         passedQuery && setQuery(passedQuery);
         if (query) {
@@ -45,8 +43,12 @@ function Recipes() {
         console.log(error);
       }
     }
-    getSearch();
-    setLoading(false);
+    //getSearch();
+    query && setLoading(true);
+    setTimeout(() => {
+      getSearch();
+      setLoading(false);
+    }, 1000);
   }, [query]);
 
   const handleKeyDown = (e) => {
@@ -103,66 +105,67 @@ function Recipes() {
 
   return (
     <div className="search-page">
-      <div className="container"><form className="recipes-search-input">
-        <input
-          type="text"
-          className="form-control"
-          id="search-input"
-          placeholder="Search..."
-          defaultValue={query}
-          onKeyDown={handleKeyDown}
-        />
-      </form>
-      
-      {loading && (
-        <div className="text-center pt-5">
-          <Spinner animation="border" role="status">
-            <span className="visually-hidden">Loading...</span>
-          </Spinner>
-        </div>
-      )}
+      <div className="container">
+        <form className="recipes-search-input">
+          <input
+            type="text"
+            className="form-control"
+            id="search-input"
+            placeholder="Search..."
+            defaultValue={query}
+            onKeyDown={handleKeyDown}
+          />
+        </form>
 
-      {pageResult.length > 1 && (
-        <Fragment>
-          <div className="pt-5">
-            <div className="row">
-              {pageResult.map((item) => {
-                return (
-                  <div className="col-md-3 py-2">
-                    <Card
-                      selfLink={item._links.self.href}
-                      label={item.recipe.label}
-                      image={item.recipe.image}
-                    ></Card>
-                  </div>
-                );
-              })}
-            </div>
+        {loading && (
+          <div className="text-center pt-5">
+            <Spinner animation="border" role="status">
+              <span className="visually-hidden">Loading...</span>
+            </Spinner>
           </div>
+        )}
 
-          <div className="py-5">
-            <div className="row">
-              <button
-                className="btn btn-danger col-3"
-                onClick={handlePrev}
-                disabled={pageCount < 2}
-              >
-                {"<<"} Prev Page
-              </button>
-              <div className="text-center col-6 fs-5">PAGE {pageCount}</div>
-              <button
-                className="btn btn-danger col-3"
-                onClick={handleNext}
-                disabled={nextLink === ""}
-              >
-                Next Page {">>"}
-              </button>
+        {pageResult.length > 1 && (
+          <Fragment>
+            <div className="pt-5">
+              <div className="row">
+                {pageResult.map((item) => {
+                  return (
+                    <div className="col-md-3 py-2">
+                      <Card
+                        selfLink={item._links.self.href}
+                        label={item.recipe.label}
+                        image={item.recipe.image}
+                      ></Card>
+                    </div>
+                  );
+                })}
+              </div>
             </div>
-          </div>
-        </Fragment>
-      )}
-    </div></div>
-      
+
+            <div className="py-5">
+              <div className="row">
+                <button
+                  className="btn btn-danger col-3"
+                  onClick={handlePrev}
+                  disabled={pageCount < 2}
+                >
+                  {"<<"} Prev Page
+                </button>
+                <div className="text-center col-6 fs-5">PAGE {pageCount}</div>
+                <button
+                  className="btn btn-danger col-3"
+                  onClick={handleNext}
+                  disabled={nextLink === ""}
+                >
+                  Next Page {">>"}
+                </button>
+              </div>
+            </div>
+          </Fragment>
+        )}
+      </div>
+    </div>
   );
 }
 
