@@ -156,7 +156,7 @@ function Recipes() {
             <div className="py-5">
               <div className="row">
                 <button
-                  className="btn btn-danger col-3"
+                  className="nav-button col-3"
                   onClick={handlePrev}
                   disabled={pageCount < 2}
                 >
@@ -164,7 +164,7 @@ function Recipes() {
                 </button>
                 <div className="text-center col-6 fs-5">PAGE {pageCount}</div>
                 <button
-                  className="btn btn-danger col-3"
+                  className="nav-button col-3"
                   onClick={handleNext}
                   disabled={nextLink === ""}
                 >

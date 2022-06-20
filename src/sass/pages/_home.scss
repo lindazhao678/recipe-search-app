@@ -1,36 +1,26 @@
 @use "../abstracts" as *;
 
 .home-page {
-  background: url("../assets/hero-image.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
+  background: url(../../assets/hero-image.webp) no-repeat center/cover;
+  min-height: 80vh;
 
   .hero-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    margin: auto;
+    padding-top: 8rem;
+    max-width: 70%;
 
-    .hero-content-left {
-      padding: 30px;
-      color: #EF3333;
+    .hero-content-top {
+      color: $font-color;
     }
 
-    .hero-content-right {
-      @extend .hero-content-left;
+    .hero-content-bottom {
+      color: $font-color;
     }
-  }
-
-  .hero-slogan {
-    padding: 30px;
-    margin-top: 12vh;
-    color: #EF3333;
-    font-size: 36px;
-    max-width: 40vw;
   }
 
   .down-arrow {
-    color: #EF3333;
-    font-size: 60px;
+    color: $font-color;
+    font-size: 1rem;
     text-align: center;
   }
   .bounce {
@@ -38,7 +28,7 @@
     -webkit-animation: bounce 2s infinite;
     animation: bounce 2s infinite;
   }
-  
+
   @keyframes bounce {
     0%,
     20%,
@@ -57,19 +47,17 @@
 
   .search-section {
     text-align: center;
-  
+    max-width: 80%; 
+    margin: auto;
+
     h1 {
-      padding-top: 10vh;
-      color: #EF3333;
-      font-weight: bold;
+      color: $font-color;
     }
   }
 }
 
-
-
-
-
-
-
-
+.hero-slogan {
+  padding: 1rem;
+  color: $font-color;
+  text-align: center;
+}

@@ -59,7 +59,7 @@ function Detail(props) {
         
         <div className="row">
           <button
-            className="btn btn-danger col-2 ms-auto mb-5"
+            className=" detail-button col-2 ms-auto mb-5"
             onClick={handleClick}
           >
             Recipe {">>"}

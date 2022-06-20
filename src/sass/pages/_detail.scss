@@ -1,7 +1,8 @@
 @use "../abstracts" as *;
 
 .detail-page {
-  background-color: #f5eb6d;
+  background: url(../../assets/hero-image.webp) no-repeat center/cover;
+  min-height: 80vh;
 
   .info-content {
     font-size: 26px;
