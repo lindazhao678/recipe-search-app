@@ -15,6 +15,7 @@
 
 .nav-button {
   @extend .more-button;
+  padding: 0;
   &:disabled {
     background-color: #cccccc;
     color: #666666;
@@ -24,10 +25,10 @@
 
 .detail-button {
   @extend .more-button;
-  padding: 2px 12px;
+  padding: 4px;
 }
 
 .send-button {
   @extend .more-button;
-  padding: 6px 12px;
+  padding: 6px;
 }

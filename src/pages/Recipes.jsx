@@ -87,6 +87,7 @@ function Recipes() {
       } else {
         fetchResult(nextLink, currentPage);
       }
+      scroll(0)
     }
   };
 
@@ -98,8 +99,17 @@ function Recipes() {
       let pageOffset = getPageOffSet(currentPage);
       const slice = resultBucket.slice(pageOffset, pageOffset + perPage);
       setPageResult(slice);
+      scroll(0)
     }
   };
+
+  function scroll(top) {
+    window.scrollTo({
+      top: top,
+      left: 0,
+      behavior: "smooth",
+    });
+  }
 
   // get page offset
   function getPageOffSet(currentPage) {
