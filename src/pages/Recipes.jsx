@@ -21,9 +21,7 @@ function Recipes() {
   const [pageCount, setPageCount] = useState(0);
 
   useEffect(() => {
-    query && setLoading(true);
     search();
-    setLoading(false);
   }, [query]);
 
   // search recipes
@@ -31,6 +29,7 @@ function Recipes() {
     try {
       passedQuery && setQuery(passedQuery);
       if (query) {
+        setLoading(true);
         axios
           .get("https://recipe-search-app-api.herokuapp.com/", {
             params: {
@@ -38,6 +37,7 @@ function Recipes() {
             },
           })
           .then((res) => {
+            setLoading(false);
             if (res.data.hits.length > 0) {
               setResultBucket(res.data.hits);
               setPageCount(1);
@@ -51,6 +51,7 @@ function Recipes() {
             }
           })
           .catch((err) => {
+            setLoading(false);
             console.log(err);
           });
       } else {
