@@ -3,7 +3,18 @@
 footer {
     display: flex;
     background-color: $primary-color;
-    height: 10vh;
+    height: 8vh;
     align-items: center;
     justify-content: center;
+    color: $nav-footer-color;
+
+    .footer-link {
+      text-decoration: underline;
+      color: $font-color;
+
+      &:hover,
+      &:active {
+        color: $hover-color;
+      }
+    }
   }

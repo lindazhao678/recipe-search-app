@@ -114,14 +114,14 @@ function Recipes() {
   }
 
   return (
-    <div className="search-page">
+    <div className="main">
       <div className="container">
         <form className="recipes-search-input">
           <input
             type="text"
             className="form-control"
             id="search-input"
-            placeholder="Search..."
+            placeholder="Search and Enter..."
             defaultValue={query}
             onKeyDown={handleKeyDown}
           />
@@ -141,7 +141,7 @@ function Recipes() {
               <div className="row">
                 {pageResult.map((item) => {
                   return (
-                    <div className="col-md-3 py-2">
+                    <div className="col-lg-3 col-md-4 col-sm-6 p-3">
                       <Card
                         selfLink={item._links.self.href}
                         label={item.recipe.label}
@@ -156,15 +156,15 @@ function Recipes() {
             <div className="py-5">
               <div className="row">
                 <button
-                  className="nav-button col-3"
+                  className="nav-button col-4 col-md-3"
                   onClick={handlePrev}
                   disabled={pageCount < 2}
                 >
                   {"<<"} Prev Page
                 </button>
-                <div className="text-center col-6 fs-5">PAGE {pageCount}</div>
+                <div className="text-center col-4 col-md-6 fs-5">PAGE {pageCount}</div>
                 <button
-                  className="nav-button col-3"
+                  className="nav-button col-4 col-md-3"
                   onClick={handleNext}
                   disabled={nextLink === ""}
                 >

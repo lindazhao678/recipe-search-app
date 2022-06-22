@@ -2,6 +2,7 @@
 
 .card {
   background-color: $primary-color;
+  box-shadow: 5px 5px 5px $font-color;
 
   .like-more-button-section {
     display: flex;
@@ -12,19 +13,5 @@
       background: transparent;
       border: none;
     }
-
-    .more-button {
-      background-color: $button-color;
-      color: $primary-color;
-      border-radius: 6px;
-      padding: 0 12px;
-      font-size: 18px;
-      border-style: none;
-
-      &:hover {
-        background-color: $font-color;
-      }
-    }
   }
-
 }

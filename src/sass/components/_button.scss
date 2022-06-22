@@ -1,0 +1,33 @@
+@use "../abstracts" as *;
+
+.more-button {
+  background-color: $font-color;
+  color: $primary-color;
+  border-radius: 6px;
+  padding: 0 12px;
+  font-size: 18px;
+  border-style: none;
+
+  &:hover {
+    background-color: $hover-color;
+  }
+}
+
+.nav-button {
+  @extend .more-button;
+  &:disabled {
+    background-color: #cccccc;
+    color: #666666;
+    pointer-events: none;
+  }
+}
+
+.detail-button {
+  @extend .more-button;
+  padding: 2px 12px;
+}
+
+.send-button {
+  @extend .more-button;
+  padding: 6px 12px;
+}

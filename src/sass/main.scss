@@ -2,13 +2,14 @@
 @use './components/navbar';
 @use './components/footer';
 @use './components/card';
+@use './components/button';  
 @use './pages/home';
 @use './pages/recipes';
 @use './pages/favorites';
 @use './pages/contact';
 @use './pages/detail';
-
-  
+@use './layout/media';  
+@use './layout/layout';  
   
   
 

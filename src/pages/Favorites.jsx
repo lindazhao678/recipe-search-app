@@ -27,13 +27,13 @@ function Favorites(props) {
   }
 
   return (
-    <div className="favorites-page p-4">
-      <div className="container">
+    <div className="main">
+      <div className="container pt-5">
         <div className="row">
           {favorites &&
             favorites.map((favorite) => {
               return (
-                <div className="col-md-3">
+                <div className="col-lg-3 col-md-4 col-sm-6 p-3">
                   <Card
                     selfLink={favorite.selfLink}
                     label={favorite.label}

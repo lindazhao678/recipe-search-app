@@ -8,8 +8,9 @@ function Header() {
   return (
     <Navbar expand="md">
       <Container>
-        <Nav.Link href="/" className="logo">
+        <Nav.Link href="/">
           <img src={logo} alt="logo" />
+          <span className="ps-2">Recipe Search App</span>
         </Nav.Link>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">

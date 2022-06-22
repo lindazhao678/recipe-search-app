@@ -1,0 +1,6 @@
+@use "../abstracts" as *;
+
+.main {
+    background: url(../../assets/hero-image.avif) no-repeat center/cover;
+    min-height: 90vh;
+}

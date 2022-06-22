@@ -1,6 +1,9 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { FaArrowDown } from "react-icons/fa";
+import { FaArrowDown, FaSearch} from "react-icons/fa";
+import {RiHeartAddFill } from "react-icons/ri";
+import {MdCoffeeMaker } from "react-icons/md";
+
 
 function Home(props) {
   const navigate = useNavigate();
@@ -14,20 +17,20 @@ function Home(props) {
   };
 
   return (
-    <div className="home-page">
+    <div className="main">
       <div className="container">
         <div className="hero-content">
-          <div className="hero-content-top">
+          <div className="hero-content-top mb-3">
             <h3>Don't know how to perpare your meal?</h3>
           </div>
           <div className="hero-content-bottom">
-            <h4>Search the recipes!</h4>
-            <h4>Add to favorits!</h4>
-            <h4>And do it!</h4>
+            <h5><FaSearch /><span className="ps-3">Search the recipes!</span></h5>
+            <h5><RiHeartAddFill /><span className="ps-3">Add to favorits!</span></h5>
+            <h5><MdCoffeeMaker /><span className="ps-3">And do it!</span></h5>
           </div>
         </div>
 
-        <div className="down-arrow bounce">
+        <div className="down-arrow bounce py-3">
           <FaArrowDown />
         </div>
         <div className="search-section">
@@ -36,7 +39,7 @@ function Home(props) {
             type="text"
             className="form-control"
             id="search-input"
-            placeholder="Search..."
+            placeholder="Search and Enter..."
             Value={query}
             onKeyDown={handleKeyDown}
           />

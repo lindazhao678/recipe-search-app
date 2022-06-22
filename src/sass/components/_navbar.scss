@@ -1,22 +1,22 @@
 @use "../abstracts" as *;
 
 .navbar {
-  background-color: #ffedd5;
+  background-color: $primary-color;
 
-  .logo img {
-    height: 40px;
-    display: block;
+  .nav-link {
+    color: $font-color;
   }
-
   .navbar-nav {
     margin-left: auto;
+
     .nav-link.active {
-      color: $font-color;
+      color: $hover-color;
     }
     .nav-link {
-      color: black;
+      color: $nav-footer-color;
+
       &:hover {
-        color: $font-color;
+        color: $hover-color;
       }
     }
   }
