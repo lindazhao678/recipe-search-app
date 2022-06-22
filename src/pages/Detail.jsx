@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
-import { fetch } from "../services/recipeServices";
+import axios from "axios";
 
 function Detail(props) {
   const [detail, setDetail] = useState();
   const { state: selfLink } = useLocation();
-  console.log(selfLink);
 
   useEffect(() => {
     async function getDetail() {
@@ -18,6 +17,10 @@ function Detail(props) {
     }
     getDetail();
   }, []);
+
+  function fetch(link) {
+    return axios.get(link);
+  }
 
   function handleClick() {
     window.open(detail && detail.data.recipe.url);

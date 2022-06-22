@@ -1,8 +1,8 @@
 import React, { Fragment, useEffect, useState } from "react";
-import { getResults, fetch } from "../services/recipeServices";
 import Card from "../components/Card";
 import { useLocation } from "react-router-dom";
 import Spinner from "react-bootstrap/Spinner";
+import axios from "axios";
 /**
  * A page to allow user to search recipes.
  * User can add the recipe to his favorites.
@@ -31,7 +31,12 @@ function Recipes() {
     try {
       passedQuery && setQuery(passedQuery);
       if (query) {
-        getResults(query)
+        axios
+          .get("https://recipe-search-app-api.herokuapp.com/", {
+            params: {
+              q: query,
+            },
+          })
           .then((res) => {
             if (res.data.hits.length > 0) {
               setResultBucket(res.data.hits);
@@ -101,8 +106,12 @@ function Recipes() {
   }
 
   // fetch result based on link and current page
-  async function fetchResult(link, currentPage) {
-    const response = await fetch(link);
+  function fetch(link) {
+    return axios.get(link);
+  }
+
+  async function fetchResult(nextLink, currentPage) {
+    const response = await fetch(nextLink);
     let mergedArrays = resultBucket.concat(response.data.hits);
     setResultBucket(mergedArrays);
     setPageResult(response.data.hits);
@@ -162,7 +171,9 @@ function Recipes() {
                 >
                   {"<<"} Prev Page
                 </button>
-                <div className="text-center col-4 col-md-6 fs-5">PAGE {pageCount}</div>
+                <div className="text-center col-4 col-md-6 fs-5">
+                  PAGE {pageCount}
+                </div>
                 <button
                   className="nav-button col-4 col-md-3"
                   onClick={handleNext}
