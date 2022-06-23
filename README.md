@@ -9,6 +9,6 @@ Recipe Search App is a react web application for user to search and view the foo
 - Build the frontend with React.
 - Build the backend with Express.
 - Use SASS and Bootstrap for the styling and responsivness.
-- Use React Hook Form combined with Joi library to build the contact - form and validation system.
+- Use React Hook Form combined with Joi library to build the contact form and validation system.
 - Use React Router DOM to implement dynamic routing.
 - Design wireframe and prototype with Figma.
