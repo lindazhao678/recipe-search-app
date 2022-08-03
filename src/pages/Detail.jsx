@@ -54,9 +54,8 @@ function Detail(props) {
             <h2>Ingredients:</h2>
             <ul>
               {detail &&
-                detail.data.recipe.ingredientLines.map((item) => (
-                  <li>{item}</li>
-                ))}
+                detail.data.recipe.ingredientLines.map(item => <li>{item}</li>
+              )}
             </ul>
           </div>
         </div>
