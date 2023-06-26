@@ -64,8 +64,8 @@ function Recipes() {
 
   // trigger search when user press enter key
   const handleKeyDown = (e) => {
-    e.preventDefault();
     if (e.key === "Enter" && e.target.value !== "") {
+      e.preventDefault();
       setQuery(e.target.value);
     }
   };

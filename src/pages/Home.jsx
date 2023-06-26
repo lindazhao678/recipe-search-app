@@ -1,16 +1,17 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { FaArrowDown, FaSearch } from "react-icons/fa";
-import { RiHeartAddFill } from "react-icons/ri";
-import { MdCoffeeMaker } from "react-icons/md";
+import { FaArrowDown, FaSearch} from "react-icons/fa";
+import {RiHeartAddFill } from "react-icons/ri";
+import {MdCoffeeMaker } from "react-icons/md";
+
 
 function Home(props) {
   const navigate = useNavigate();
   const { query, getQuery } = props;
 
   const handleKeyDown = (e) => {
-    e.preventDefault();
     if (e.key === "Enter" && e.target.value !== "") {
+      e.preventDefault();
       navigate("/Recipes", { state: e.target.value });
     }
   };
@@ -23,18 +24,9 @@ function Home(props) {
             <h3>Don't know how to perpare your meal?</h3>
           </div>
           <div className="hero-content-bottom">
-            <h5>
-              <FaSearch />
-              <span className="ps-3">Search the recipes!</span>
-            </h5>
-            <h5>
-              <RiHeartAddFill />
-              <span className="ps-3">Add to favorits!</span>
-            </h5>
-            <h5>
-              <MdCoffeeMaker />
-              <span className="ps-3">And do it!</span>
-            </h5>
+            <h5><FaSearch /><span className="ps-3">Search the recipes!</span></h5>
+            <h5><RiHeartAddFill /><span className="ps-3">Add to favorits!</span></h5>
+            <h5><MdCoffeeMaker /><span className="ps-3">And do it!</span></h5>
           </div>
         </div>
 
