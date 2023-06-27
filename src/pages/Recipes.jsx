@@ -31,7 +31,7 @@ function Recipes() {
       if (query) {
         setLoading(true);
         axios
-          .get("https://recipe-search-app-api.herokuapp.com/", {
+          .get("http://ec2-3-83-116-164.compute-1.amazonaws.com/", {
             params: {
               q: query,
             },
