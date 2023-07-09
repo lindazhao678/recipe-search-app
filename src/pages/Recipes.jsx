@@ -31,7 +31,7 @@ function Recipes() {
       if (query) {
         setLoading(true);
         axios
-          .get("http://ec2-3-83-116-164.compute-1.amazonaws.com/", {
+          .get("https://recipe-elb-1542045727.us-east-1.elb.amazonaws.com/", {
             params: {
               q: query,
             },
